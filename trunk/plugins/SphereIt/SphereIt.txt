@@ -1,0 +1,61 @@
+Description:
+
+The MT-SphereIt plugin provides two template tags for your Movable Type-powered blog (MT4 only!). When a visitor to your site clicks on the icon link, the Sphere widget finds related blog posts and media articles related to your content, and displays them in a pop-up window, providing easy access to similar content across the 'Sphere. See the widget in action on media sites and blogs like MarketWatch, Real Clear Politics and The Ag. The Sphere widget works best on English language blog posts and topics that are being actively discussed in the blogosphere.
+
+Politically minded bloggers can adapt the plugin to show Left, Right, Balanced items ... If you're a political blogger, this is an informative and fun way to add to your site's user experience. Just go to the "Settings" for the plugin at the blog level in Movable Type, and you'll see a section allowing you to change the type of widget that displays. As more types become available, the plugin can easily be adapted to handle them.
+
+Installation:
+
+1. Unzip the distribution archive.
+
+2. Copy the folder heirarchy to the Movable Type plugins directory (mt/plugins). Make sure you keep the directory structure intact.
+
+Configuration:
+
+1. Login to Movable Type.
+
+2. Go to the Blog Plugin Settings screen (Handy Shortcuts -&gt; Plugins or Preferences -&gt; Blog Settings -&gt; Plugins).
+
+3. Check the box to enable MT-SphereIt.
+
+4. The default threshold settings are already set to recommended values, but you can change them if you would like.
+
+To disable threshold checking entirely, uncheck the box. To change character or word checking, set the appropriate value.
+
+An entry must fail both thresholds in order to be skipped. In other words, if you have a high character count, but a low word count, the threshold may still be met. This is by design.
+
+The default values of 500 (characters) and 30 (words) are chosen for their optimization values, so you should try to use this at the outset if at all possible to ensure the best results.
+
+All threshold values are counted based on the total found in the entry body and the extended entry.
+
+5. Finally, choose the type of widget to display. The default is the standard Sphere widget. You may also choose one of the political designs if that is the focus of your site.
+
+Template Tags:
+
+The &lt;$MTSphereItHeader$&gt; template tag is required in order to make use of the plugin. The modular design of the MT4 templates makes it easy to include this tag in all templates, even if you are not going to use the widget in every template.
+
+1. Locate the Header template module (Design -&gt; Templates -&gt; Template Modules -&gt; Header).
+
+2. The suggested placement is just above the &lt;/head&gt; (line 50 in the default template module).  Type "&lt;$MTSphereItHeader$&gt;" (without quotes) and press ENTER.
+
+Note: The template tag can go anywhere inside the &lt;head&gt;&lt;/head&gt; tags, but make sure it is not inside an &lt;MTIf&gt; block.
+
+3. Click Save.
+
+The &lt;$MTSphereItWidget$&gt; template tag is used to indicate where you would like to display the widget itself.  As such, it can go into just about any template you like, and it will display in that location.  Here is on suggestion.
+
+1. Locate the Entry Metadata template module (Design -&gt; Templates -&gt; Template Modules -&gt; Header).
+
+2. The suggested placement is at the end of the module, just above the closing &lt;/div&gt; (line 12 in the default template module).  Type "| &lt;$MTSphereItWidget$&gt;" (without quotes) and press ENTER.
+
+Note: The template tag can go anywhere inside this, or any other, module.  But it looks good here.
+
+3. Click Save.
+
+Rebuild (Static Archives Only):
+
+Now that you have inserted the template tags, you may need to rebuild your archives.  If you are using dynamic publishing, then you are done.  But if you use static publishing, there is one more step.  Simply click the "Rebuild Site" icon (the next to the last one on the menu bar as of this writing), and in the pop-up window, make sure that "All Files" is selected in the drop-down list, then click "Publish".  When the process completes, your site will be ready to roll!
+
+Styling the Widget:
+
+The widget uses a style of .iconsphere (that's a class of "iconsphere"), so if you'd like, you should be able to add additional styling to it, or perhaps even override it by providing a more specific DOM location than the one that is provided in the header (which is just .iconsphere).  Using this, you should be able to style to your heart's content.
